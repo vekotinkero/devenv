@@ -15,8 +15,7 @@ sudo apt-get -y install codeblocks codeblocks-contrib
 cd ../
 
 echo -e "Great! Next we'll download some git repos... \n"
-git clone git://github.com/Weptech-elektronik/contiki ./contiki-weptech
-git clone git://github.com/JelmerT/cc2538-bsl.git ./contiki-weptech/tools/cc2538-bsl
+git clone --recursive git://github.com/Weptech-elektronik/contiki ./contiki-weptech
 git clone git://github.com/RIOT-OS/RIOT.git
 
 echo -e "Done! Next we'll update old repos... \n"
