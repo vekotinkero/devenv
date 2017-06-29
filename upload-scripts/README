@@ -1,0 +1,52 @@
+READ THESE INSTRUCTIONS CAREFULLY YOU DUMBASS!
+
+Here are scripts for uploading progarms to Saker.
+
+STEP 1 - START BOOTLOADER:
+Hold S101 while connecting USB-cable to Saker or
+while pressing S100. 
+
+This will start the bootloader. Not LEDs should blink now.
+
+STEP 2 - UPLOAD:
+Use Desktop Launcher or
+using Terminal 
+
+sudo /home/$USER/upload-scripts/upload
+
+The script will guide you...
+
+STEP 3 - VERIFY:
+You'll see when it starts uploading. It should output something like this:
+ 
+	Opening port /dev/ttyUSB0, baud 500000
+	Reading data from ./border-router-cc2538-254ghz.bin
+	Cannot auto-detect firmware filetype: Assuming .bin
+	Connecting to target...
+	CC2538 PG2.0: 512KB Flash, 32KB SRAM, CCFG at 0x0027FFD4
+	Primary IEEE Address: 00:12:4B:00:06:16:0E:09
+	Erasing 524288 bytes starting at address 0x00200000
+	    Erase done
+	Writing 524288 bytes starting at address 0x00200000
+	Write 16 bytes at 0x0027FFF0F8
+	    Write done                                
+	Verifying by comparing CRC32 calculations.
+	    Verified (match: 0xb4cd6eae)
+
+You might also get following errors:
+
+ERROR: No serial port found.
+	Your USB cable is not connected or 
+	it was connected before VMWare was started, 
+	i.e. Linux can't find the serial device. Try reconnecting.
+
+ERROR: Timeout waiting for ACK/NACK after 'Synch (0x55 0x55)'
+	Bootloader not started properly. See STEP 1.
+
+In case of errors, try again. Good luck!
+
+
+
+	
+
+
