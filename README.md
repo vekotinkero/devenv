@@ -12,13 +12,12 @@ This has been developed and tested with Ubuntu 14.04 ([InstantContiki3.0](https:
 .
 
 # instructions 
-
 ```
 cd /home/$USER/
 git clone git://github.com/vekotinkero/devenv/ 
 chmod +x -R devenv
-./devenv/install.sh
-sudo rm -r devenv
+cd devenv
+./install.sh
 ```
 
 
