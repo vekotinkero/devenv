@@ -1,17 +1,9 @@
 #!/bin/bash
-# Tämä scripti tekee seuraavaa:
-# - asentaa Code::Blocksin
-# - lataa GitHubista Weptechin Contiki forkin ja RIOT-OS:n
-# - päivittää vanhoja repoja
-# - käynnistää ja compilaa Coojan
-# - kääntää ohjelmat Weptechin Sakerille (border router)
-# - tekee upload-launcherit ko. ohjelmille
-#
 # Inx-Service (c) Veikko Kero 2017
 
 echo -e "Follow the instructions on the screen... if any. \n"
 
-# Start in inx-dev-env directory
+# Start in devenv directory
 cp -r ./upload-scripts/ ../
 
 echo -e "Adding Code::Blocks repository. \n"
@@ -57,4 +49,3 @@ cd ../../../../
 cp ./upload-scripts/Saker\ Uploader.desktop ./Desktop
 
 echo -e "Well well well, all done. You're welcome. \n"
-sudo rm -r /home/user/inx-dev-env
