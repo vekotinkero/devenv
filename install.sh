@@ -44,8 +44,22 @@ make TARGET=saker
 mv border-router.bin ../../../../upload-scripts/br-cc2538.bin
 make clean
 
-# Back to home folder
-cd ../../../../
-cp ./upload-scripts/Saker\ Uploader.desktop ./Desktop
+# Go to Desktop
+cd ../../../../Desktop
+
+echo "#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Icon[en_US]=/home/$USER/upload-scripts/upload.png
+Name[en_US]=Saker Uploader
+Exec=/home/$USER/upload-scripts/upload
+Comment[en_US]=Starts a script used to upload stuff to Weptech Saker
+Name=Saker Uploader
+Comment=Starts a script used to upload stuff to Weptech Saker
+Icon=/home/$USER/upload-scripts/upload.png" >> upload.desktop
+
+chmod +x upload.desktop
 
 echo -e "Well well well, all done. You're welcome. \n"
