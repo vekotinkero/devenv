@@ -52,13 +52,10 @@ echo "#!/usr/bin/env xdg-open
 Version=1.0
 Type=Application
 Terminal=true
-Icon[en_US]=/home/$USER/upload-scripts/upload.png
-Name[en_US]=Saker Uploader
 Exec=/home/$USER/upload-scripts/upload
-Comment[en_US]=Starts a script used to upload stuff to Weptech Saker
 Name=Saker Uploader
 Comment=Starts a script used to upload stuff to Weptech Saker
-Icon=/home/$USER/upload-scripts/upload.png" >> upload.desktop
+Icon=transmission" >> upload.desktop
 
 chmod +x upload.desktop
 
