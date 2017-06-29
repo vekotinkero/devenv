@@ -44,9 +44,8 @@ make TARGET=saker
 mv border-router.bin ../../../../upload-scripts/br-cc2538.bin
 make clean
 
-# Go to Desktop
+# Go to Desktop and generate launcher
 cd ../../../../Desktop
-
 echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
