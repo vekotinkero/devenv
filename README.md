@@ -1,7 +1,7 @@
 # inxdevenv
 The 'install.sh' script is used for installing some software for Ubuntu
 
-# What's included?
+# So what's downloaded?
 - Code::Blocks IDE
 - Weptech Fork of Contiki OS 
 - RIOT-OS
