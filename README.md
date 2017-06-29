@@ -1,4 +1,4 @@
-# inxdevenv
+# devenv
 The 'install.sh' script is used for installing some software for Ubuntu
 
 # So what's downloaded?
