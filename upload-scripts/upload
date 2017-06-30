@@ -10,6 +10,7 @@ echo -e "\nGood Day to you Sir! Let's program Weptech Saker.\n"
 echo "Please select the program you want to upload: "
 echo "	[1] CC1200 Sub-1GHz"
 echo "	[2] CC2538 2.54GHz"
+echo "	[3] Thingsquare Firmware 868MHz"
 echo "	[X] EXIT"
 
 while true; do
@@ -21,6 +22,9 @@ while true; do
         [2]* ) PROGRAM=./br-cc2538.bin; 
 		echo -e "You've selected 'br-cc2538.bin'. Let's start! \n"; 
 		break;;
+	[3]* ) PROGRAM=./weptech-868mhz.bin; 
+		echo -e "You've selected 'weptech-868mhz.bin'. Let's start! \n"; 
+		break;;
 	[Xx]* ) echo "Take care now, bye bye then!"; exit;;
         * ) echo "Please check your options!";;
     esac
@@ -31,4 +35,3 @@ sudo python ../contiki-weptech/tools/cc2538-bsl/cc2538-bsl.py -e -w -v $PROGRAM
 echo ""
 echo "Hope you had any luck today!"
 read -p "Press any key to continue... "
-
