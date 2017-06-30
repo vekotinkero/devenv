@@ -13,6 +13,10 @@ sudo apt-get update
 echo -e "Installing Code::Blocks and Cutecom.\n"
 sudo apt-get -y install codeblocks codeblocks-contrib cutecom
 
+echo -e "Giving user named $USER rights to use Cutecom"
+CURRENT_USER=$USER
+sudo usermod -a -G dialout $CURRENT_USER
+
 # Move to home folder
 cd ~/
 
@@ -59,4 +63,6 @@ Icon=transmission" >> upload.desktop
 
 chmod +x upload.desktop
 
-echo -e "Well well well, all done. You're welcome. \n"
+echo -e "Well well well, all done. You're welcome. Now you will need to log back in. \n"
+read -p "Press any key if you understood."
+dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Logout uint32:1
