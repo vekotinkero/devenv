@@ -1,13 +1,15 @@
 #!/bin/bash
 
 cd ~/upload-scripts
-echo -e "\nGood Day to you Sir! Let's program Weptech Saker."
+echo "Good Day to you Sir! Let's program Weptech Saker."
 
 ## array of menu entries
-entries=( "CC1200 Sub-1GHz"
+entries=(
+	"CC1200 Sub-1GHz"
 	"CC2538 2.54GHz"
 	"Thingsquare Firmware 868MHz"
-	"EXIT" )
+	"EXIT" 
+	)
 
 ## set prompt for select menu
 PS3='Selection: '
