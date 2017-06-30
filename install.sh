@@ -12,7 +12,7 @@ sudo apt-get update
 sudo apt-get -y install codeblocks codeblocks-contrib 
 
 # Move to home folder
-cd ../
+cd ~/
 
 echo -e "Great! Next we'll download some git repos... \n"
 sudo rm -r contiki
@@ -28,20 +28,23 @@ sudo ant run
 echo -e "Now it's time for some serious compiling... \n"
 
 # Go to Sakers border router example folder
-cd ../../../contiki-weptech/examples/saker/ip64-rpl-border-router
+cd ~/contiki-weptech/examples/saker/ip64-rpl-border-router
 
 sed -i '94s/.*/#define PLATFORM_CONF_USE_CC1200        0/' project-conf.h
 make TARGET=saker
-mv border-router.bin ../../../../upload-scripts/br-cc1200.bin
+mv border-router.bin ~/upload-scripts/br-cc1200.bin
 make clean
 
 sed -i '94s/.*/#define PLATFORM_CONF_USE_CC1200        1/' project-conf.h
 make TARGET=saker
-mv border-router.bin ../../../../upload-scripts/br-cc2538.bin
+mv border-router.bin ~/upload-scripts/br-cc2538.bin
 make clean
 
+# Download Thingsquare firmware for Weptech
+cd ~/upload-scripts && wget "www.thingsquare.com/download/firmware/weptech-868mhz.bin"
+
 # Go to Desktop and generate launcher
-cd ../../../../Desktop
+cd ~/Desktop
 echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
