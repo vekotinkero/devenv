@@ -15,13 +15,10 @@ sudo apt-get -y install codeblocks codeblocks-contrib
 cd ../
 
 echo -e "Great! Next we'll download some git repos... \n"
+sudo rm -r contiki
+git clone --recursive git://github.com/contiki-os/contiki
 git clone --recursive git://github.com/Weptech-elektronik/contiki ./contiki-weptech
 git clone git://github.com/RIOT-OS/RIOT.git
-
-echo -e "Done! Next we'll update old repos... \n"
-# Go to basic contiki folder
-cd ./contiki
-git submodule update --init
 
 echo -e "Ok. Now I'll try to compile and start Cooja Network Simualtor. \n"
 # Go to Cooja folder
