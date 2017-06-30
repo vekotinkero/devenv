@@ -1,5 +1,5 @@
 # devenv
-The 'install.sh' script is used for installing some software for Ubuntu. 
+The 'install.sh' script is used for installing some software for Ubuntu. It will log the current user out. Relogin is needed.
 
 # so what does it do?
 - Installs Code::Blocks IDE
