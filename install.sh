@@ -6,10 +6,12 @@ echo -e "Follow the instructions on the screen... if any. \n"
 # Start in devenv directory
 cp -r ./upload-scripts/ ../
 
-echo -e "Adding Code::Blocks repository. \n"
+echo -e "Adding Code::Blocks repository.\n"
 sudo add-apt-repository ppa:damien-moore/codeblocks-stable
 sudo apt-get update
-sudo apt-get -y install codeblocks codeblocks-contrib 
+
+echo -e "Installing Code::Blocks and Cutecom.\n"
+sudo apt-get -y install codeblocks codeblocks-contrib cutecom
 
 # Move to home folder
 cd ~/
