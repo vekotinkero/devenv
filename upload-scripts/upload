@@ -1,37 +1,70 @@
 #!/bin/bash
-# This script uploads an program to Weptech Saker
-# First reboot device while holding button S101 (second from the USB-connector) 
-# This will start the bootloader
-# Inx-Service (c) Veikko Kero 2017
 
-cd /home/$USER/upload-scripts
+cd ~/upload-scripts
+echo -e "\nGood Day to you Sir! Let's program Weptech Saker."
 
-echo -e "\nGood Day to you Sir! Let's program Weptech Saker.\n"
-echo "Please select the program you want to upload: "
-echo "	[1] CC1200 Sub-1GHz"
-echo "	[2] CC2538 2.54GHz"
-echo "	[3] Thingsquare Firmware 868MHz"
-echo "	[X] EXIT"
+## array of menu entries
+entries=( "CC1200 Sub-1GHz"
+	"CC2538 2.54GHz"
+	"Thingsquare Firmware 868MHz"
+	"EXIT" )
 
-while true; do
-    read -p "-> " ans
-    case $ans in
-        [1]* ) PROGRAM=./br-cc1200.bin; 
-	       echo -e "You've selected 'br-cc1200.bin'. Let's start! \n"; 
-		break;;
-        [2]* ) PROGRAM=./br-cc2538.bin; 
-		echo -e "You've selected 'br-cc2538.bin'. Let's start! \n"; 
-		break;;
-	[3]* ) PROGRAM=./weptech-868mhz.bin; 
-		echo -e "You've selected 'weptech-868mhz.bin'. Let's start! \n"; 
-		break;;
-	[Xx]* ) echo "Take care now, bye bye then!"; exit;;
-        * ) echo "Please check your options!";;
-    esac
+## set prompt for select menu
+PS3='Selection: '
+
+while [ "$menu" != 1 ]; do               		## outer loop redraws menu each time
+ 	## heading for menu
+	printf "\nPlease select the program you want to upload:\n"          
+	select choice in "${entries[@]}"; do  		## select displays choices in array
+        	case "$choice" in                	## case responds to choice
+            		"CC1200 Sub-1GHz" )
+               			echo -e "You've selected 'br-cc1200.bin'. Let's start! \n"; 
+				PROGRAM=./br-cc1200.bin; 
+				menu=2
+               			break                     
+                		;;
+            		"CC2538 2.54GHz" )         
+		       		 echo -e "You've selected 'br-cc2538.bin'. Let's start! \n";   
+				PROGRAM=./br-cc2538.bin; 
+				menu=2                        
+		        	break
+		        	;;
+            		"Thingsquare Firmware 868MHz" )
+		        	echo -e "You've selected 'weptech-868mhz.bin'. Let's start! \n";
+				PROGRAM=./weptech-868mhz.bin; 
+				menu=2
+				break
+		        	;;
+            		"EXIT" )
+				echo "Take care now, bye bye then!";            
+		        	menu=1                    
+		        	break
+		        	;;
+           		 * )
+		        	echo "Please check your options!"
+		        	;;
+		esac
+	done
+
+   	while [ "$menu" -eq 2 ]; do
+		sudo python ~/contiki-weptech/tools/cc2538-bsl/cc2538-bsl.py -e -w -v $PROGRAM
+
+		echo -e "\nHope you had any luck today!"
+		read -p "Do you want to try again? (y/n) " yn
+		case $yn in
+			[Yy]* ) echo "Ok!";  
+				break
+				;;
+			[Nn]* ) echo "Take care now, bye bye then!";
+				menu=1                    
+		        	break
+		        	;;
+			* ) 	
+				echo "Please answer 'y' or 'n'"
+				;;
+	esac
+    done
+	
 done
 
-sudo python ../contiki-weptech/tools/cc2538-bsl/cc2538-bsl.py -e -w -v $PROGRAM
-
-echo ""
-echo "Hope you had any luck today!"
-read -p "Press any key to continue... "
+exit 0
