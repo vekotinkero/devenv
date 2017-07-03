@@ -38,12 +38,12 @@ cd ~/contiki-weptech/examples/saker/ip64-rpl-border-router
 
 sed -i '94s/.*/#define PLATFORM_CONF_USE_CC1200        0/' project-conf.h
 make TARGET=saker
-mv border-router.bin ~/upload-scripts/br-cc1200.bin
+mv border-router.bin ~/upload-scripts/br-cc2538.bin
 make clean
 
 sed -i '94s/.*/#define PLATFORM_CONF_USE_CC1200        1/' project-conf.h
 make TARGET=saker
-mv border-router.bin ~/upload-scripts/br-cc2538.bin
+mv border-router.bin ~/upload-scripts/br-cc1200.bin
 make clean
 
 # Download Thingsquare firmware for Weptech
