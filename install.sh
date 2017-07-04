@@ -10,8 +10,8 @@ echo -e "Adding Code::Blocks repository.\n"
 sudo add-apt-repository ppa:damien-moore/codeblocks-stable
 sudo apt-get update
 
-echo -e "Installing Code::Blocks and Cutecom.\n"
-sudo apt-get -y install codeblocks codeblocks-contrib cutecom
+echo -e "Installing Code::Blocks, cmake and Cutecom.\n"
+sudo apt-get -y install codeblocks codeblocks-contrib cmake cutecom
 
 echo -e "Giving user named $USER rights to use Cutecom"
 CURRENT_USER=$USER
@@ -24,11 +24,22 @@ echo -e "Great! Next we'll download some git repos... \n"
 sudo rm -r contiki
 git clone --recursive git://github.com/contiki-os/contiki
 git clone --recursive git://github.com/Weptech-elektronik/contiki ./contiki-weptech
-git clone git://github.com/RIOT-OS/RIOT.git
+
+# Uncomment if you need newest Doxygen (should be included in Code::Blocks)
+#git clone https://github.com/doxygen/doxygen.git && cd doxygen
+#echo -e "Building Doxygen... This might take a while.\n"
+#mkdir build && cd build
+#cmake -G "Unix Makefiles" ..
+#make
+#sudo make install 
+#cd 
+
+# Uncomment if you want to download RIOT-OS
+#git clone git://github.com/RIOT-OS/RIOT.git
 
 echo -e "Ok. Now I'll try to compile and start Cooja Network Simualtor. \n"
 # Go to Cooja folder
-cd ./tools/cooja
+cd ~/contiki/tools/cooja
 sudo ant run
 
 echo -e "Now it's time for some serious compiling... \n"
