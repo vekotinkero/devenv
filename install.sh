@@ -37,10 +37,10 @@ git clone --recursive git://github.com/Weptech-elektronik/contiki ./contiki-wept
 # Uncomment if you want to download RIOT-OS
 #git clone git://github.com/RIOT-OS/RIOT.git
 
-echo -e "Ok. Now I'll try to compile and start Cooja Network Simualtor. \n"
-# Go to Cooja folder
-cd ~/contiki/tools/cooja
-sudo ant run
+#echo -e "Ok. Now I'll try to compile and start Cooja Network Simualtor. \n"
+## Go to Cooja folder
+#cd ~/contiki/tools/cooja
+#sudo ant run
 
 echo -e "Now it's time for some serious compiling... \n"
 
